@@ -1,4 +1,5 @@
 import React from 'react'
+import Tarjeta from './Tarjeta/Tarjeta'
 
 function Cards() {
   return (
