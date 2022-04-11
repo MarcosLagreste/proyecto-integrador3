@@ -8,14 +8,9 @@ class Tarjetas extends Component{
     this.state= {
       isLoaded: false,
       info: [],
-<<<<<<< HEAD
-      infoInicial: [],
+      infoI: [],
       error: '',
       limit: 10
-=======
-      infoI: [],
-      error: ''
->>>>>>> 8777618e27f287d1fea861aa88fae776cf631355
     }
   }
 
@@ -30,13 +25,6 @@ class Tarjetas extends Component{
         }))
         .catch((error) => this.setState({ error: 'Ups, ocurrió un error inesperado' }))
   }
-  filtrarBusqueda(textoAFiltrar){
-    let cancionesFiltradas = this.state.infoI.filter(info => info.title.toLowerCase().includes(textoAFiltrar.toLowerCase()))
-    this.setState({
-        info: cancionesFiltradas
-    })
-    /* console.log(cancionesFiltradas) */; 
-  }
 
   componentDidUpdate(){
     let url = `https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/tracks&top?limit=${this.state.limit}`
@@ -44,9 +32,17 @@ class Tarjetas extends Component{
         .then((response) => response.json())
         .then((data) => this.setState({
           info: data.data,
-          infoInicial: data.data
+          infoI: data.data
         }))
         .catch((error) => this.setState({ error: 'Ups, ocurrió un error inesperado' }))
+  }
+
+  filtrarBusqueda(textoAFiltrar){
+    let cancionesFiltradas = this.state.infoI.filter(info => info.title.toLowerCase().includes(textoAFiltrar.toLowerCase()))
+    this.setState({
+        info: cancionesFiltradas
+    })
+    /* console.log(cancionesFiltradas) */; 
   }
 
   traerTarjetas(){
@@ -59,13 +55,7 @@ class Tarjetas extends Component{
     /* console.log('renderizado') */
     return(
       <React.Fragment>
-<<<<<<< HEAD
-      <Buscador filtrarBusqueda={(textoAFiltrar) => this.filtrarBusqueda(textoAFiltrar)}/>
-      <button onClick={() => this.traerTarjetas()} type="button">Cargar más tarjetas</button>
-=======
       <Buscador filtrarBusqueda= {(textoAFiltrar) => this.filtrarBusqueda(textoAFiltrar)}/>
-      <button type="button">Cargar más tarjetas</button>
->>>>>>> 8777618e27f287d1fea861aa88fae776cf631355
       <article>
           {
             this.state.isLoaded === false ?
@@ -74,6 +64,7 @@ class Tarjetas extends Component{
                 < Tarjeta key={info.id + idx} datosTarjeta={info} />
             )
           }
+        <button onClick={() => this.traerTarjetas()} type="button">Cargar más tarjetas</button>
       </article>  
       </React.Fragment>
     )
