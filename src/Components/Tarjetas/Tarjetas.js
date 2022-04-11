@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Tarjeta from './Tarjeta/Tarjeta'
+import Buscador from '../Buscador/Buscador'
 
 class Tarjetas extends Component{
   constructor(props) {
@@ -7,6 +8,7 @@ class Tarjetas extends Component{
     this.state= {
       isLoaded: false,
       info: [],
+      infoInicial: [],
       error: ''
     }
   }
@@ -17,16 +19,29 @@ class Tarjetas extends Component{
         .then((response) => response.json())
         .then((data) => this.setState({
           isLoaded: true,
-          info: data.data
+          info: data.data,
+          infoInicial: data.data
         }))
         .catch((error) => this.setState({ error: 'Ups, ocurrió un error inesperado' }))
   }
+<<<<<<< HEAD
 
   
+=======
+  filtrarBusqueda(textoAFiltrar){
+    let cancionesFiltradas = this.state.infoInicial.filter(info => info.title.toLowerCase().includes(textoAFiltrar.toLowerCase()))
+    this.setState({
+        infoInicial: cancionesFiltradas
+    })
+    console.log(cancionesFiltradas); 
+  }
+>>>>>>> 24a8ee164d57287d21ff3835ee1ac9b158a1a5e9
   render(){
     console.log('renderizado')
     return(
-      
+      <React.Fragment>
+      <Buscador filtrarBusqueda={(textoAFiltrar) => this.filtrarBusqueda(textoAFiltrar)}/>
+      <button type="button">Cargar más tarjetas</button>
       <article>
           {
             this.state.isLoaded === false ?
@@ -36,6 +51,7 @@ class Tarjetas extends Component{
             )
           }
       </article>  
+      </React.Fragment>
     )
   }
 }

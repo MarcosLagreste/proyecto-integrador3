@@ -1,5 +1,4 @@
 import React from 'react'
-import Buscador from './Buscador/Buscador'
 
 function Header() {
   return (
@@ -9,7 +8,6 @@ function Header() {
     <section>
         <i class="fas fa-th"></i>
         <i class="fas fa-align-justify"></i>
-        <Buscador/>
     </section>
   </header>
   )

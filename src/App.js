@@ -8,7 +8,6 @@ function App() {
     <div className="App">
           <Header/>
       <main>
-          <button type="button">Cargar más tarjetas</button>
           <section class="card-container">
             <Tarjetas />
             
