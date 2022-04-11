@@ -24,10 +24,6 @@ class Tarjetas extends Component{
         }))
         .catch((error) => this.setState({ error: 'Ups, ocurrió un error inesperado' }))
   }
-<<<<<<< HEAD
-
-  
-=======
   filtrarBusqueda(textoAFiltrar){
     let cancionesFiltradas = this.state.infoInicial.filter(info => info.title.toLowerCase().includes(textoAFiltrar.toLowerCase()))
     this.setState({
@@ -35,7 +31,6 @@ class Tarjetas extends Component{
     })
     console.log(cancionesFiltradas); 
   }
->>>>>>> 24a8ee164d57287d21ff3835ee1ac9b158a1a5e9
   render(){
     console.log('renderizado')
     return(
