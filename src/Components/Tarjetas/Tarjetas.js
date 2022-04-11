@@ -9,7 +9,8 @@ class Tarjetas extends Component{
       isLoaded: false,
       info: [],
       infoInicial: [],
-      error: ''
+      error: '',
+      limit: 10
     }
   }
 
@@ -29,14 +30,32 @@ class Tarjetas extends Component{
     this.setState({
         infoInicial: cancionesFiltradas
     })
-    console.log(cancionesFiltradas); 
+    /* console.log(cancionesFiltradas) */; 
   }
+
+  componentDidUpdate(){
+    let url = `https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/tracks&top?limit=${this.state.limit}`
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => this.setState({
+          info: data.data,
+          infoInicial: data.data
+        }))
+        .catch((error) => this.setState({ error: 'Ups, ocurrió un error inesperado' }))
+  }
+
+  traerTarjetas(){
+    this.setState({
+      limit: this.state.limit + 10
+    })
+  }
+
   render(){
-    console.log('renderizado')
+    /* console.log('renderizado') */
     return(
       <React.Fragment>
       <Buscador filtrarBusqueda={(textoAFiltrar) => this.filtrarBusqueda(textoAFiltrar)}/>
-      <button type="button">Cargar más tarjetas</button>
+      <button onClick={() => this.traerTarjetas()} type="button">Cargar más tarjetas</button>
       <article>
           {
             this.state.isLoaded === false ?
