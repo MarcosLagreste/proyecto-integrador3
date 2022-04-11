@@ -8,9 +8,14 @@ class Tarjetas extends Component{
     this.state= {
       isLoaded: false,
       info: [],
+<<<<<<< HEAD
       infoInicial: [],
       error: '',
       limit: 10
+=======
+      infoI: [],
+      error: ''
+>>>>>>> 8777618e27f287d1fea861aa88fae776cf631355
     }
   }
 
@@ -21,14 +26,14 @@ class Tarjetas extends Component{
         .then((data) => this.setState({
           isLoaded: true,
           info: data.data,
-          infoInicial: data.data
+          infoI: data.data
         }))
         .catch((error) => this.setState({ error: 'Ups, ocurrió un error inesperado' }))
   }
   filtrarBusqueda(textoAFiltrar){
-    let cancionesFiltradas = this.state.infoInicial.filter(info => info.title.toLowerCase().includes(textoAFiltrar.toLowerCase()))
+    let cancionesFiltradas = this.state.infoI.filter(info => info.title.toLowerCase().includes(textoAFiltrar.toLowerCase()))
     this.setState({
-        infoInicial: cancionesFiltradas
+        info: cancionesFiltradas
     })
     /* console.log(cancionesFiltradas) */; 
   }
@@ -54,8 +59,13 @@ class Tarjetas extends Component{
     /* console.log('renderizado') */
     return(
       <React.Fragment>
+<<<<<<< HEAD
       <Buscador filtrarBusqueda={(textoAFiltrar) => this.filtrarBusqueda(textoAFiltrar)}/>
       <button onClick={() => this.traerTarjetas()} type="button">Cargar más tarjetas</button>
+=======
+      <Buscador filtrarBusqueda= {(textoAFiltrar) => this.filtrarBusqueda(textoAFiltrar)}/>
+      <button type="button">Cargar más tarjetas</button>
+>>>>>>> 8777618e27f287d1fea861aa88fae776cf631355
       <article>
           {
             this.state.isLoaded === false ?
