@@ -21,6 +21,8 @@ class Tarjetas extends Component{
         }))
         .catch((error) => this.setState({ error: 'Ups, ocurrió un error inesperado' }))
   }
+
+  
   render(){
     console.log('renderizado')
     return(

@@ -3,21 +3,34 @@ import React, {Component} from 'react'
 class Tarjeta extends Component{
   constructor(props){
     super(props)
-    this.state = {}
+    this.state = {
+      verMas: false,
+      text: "Ver Más"
+    }
   }
 
+  cambiarVerMas(){
+    if(this.state.verMas){
+      this.setState({verMas: false, text: "Ver Más"})
+    } else {
+      this.setState({verMas: true, text: "Ver Menos"})
+    }
+  }
+  
   render(){
     return(
       <main>
           <img src={this.props.datosTarjeta.artist.picture_medium} alt=""/>
           <h3>{this.props.datosTarjeta.title}</h3>
-          <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint cumque velit minus facere laboriosam voluptatem impedit ea unde labore optio eius quis, dignissimos expedita. Culpa, soluta perspiciatis! Sint, laboriosam cum.</p>
+          <p class="description">Artista: {this.props.datosTarjeta.artist.name}</p>
+          {
+          this.state.verMas === false ?
+          <p></p> :
           <section class="aditional-info">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse qui atque.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse qui atque.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse qui atque.</p>
+            <p>Album: {this.props.datosTarjeta.album.title}</p>
           </section>
-          <a href="">Ver más</a>
+          }
+          <button onClick={()=> this.cambiarVerMas()}>{this.state.text}</button>          
       </main>
     )
   }
