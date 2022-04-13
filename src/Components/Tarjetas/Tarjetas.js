@@ -27,8 +27,12 @@ class Tarjetas extends Component{
         .catch((error) => this.setState({ error: 'Ups, ocurrió un error inesperado' }))
   }
 
-  componentDidUpdate(){
-    let url = `https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/tracks&top?limit=${this.state.limit}`
+  cargarMas(){
+    this.setState({
+      limit: this.state.limit + 10
+    }, ()=>{
+      let url = `https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/tracks&top?limit=${this.state.limit}`
+    
     fetch(url)
         .then((response) => response.json())
         .then((data) => this.setState({
@@ -36,7 +40,11 @@ class Tarjetas extends Component{
           infoI: data.data
         }))
         .catch((error) => this.setState({ error: 'Ups, ocurrió un error inesperado' }))
+    })
   }
+  
+
+    
 
   filtrarBusqueda(textoAFiltrar){
     let cancionesFiltradas = this.state.infoI.filter(info => info.title.toLowerCase().includes(textoAFiltrar.toLowerCase()))
@@ -46,11 +54,6 @@ class Tarjetas extends Component{
     /* console.log(cancionesFiltradas) */; 
   }
 
-  traerTarjetas(){
-    this.setState({
-      limit: this.state.limit + 10
-    })
-  }
 
   render(){
     /* console.log('renderizado') */
@@ -65,7 +68,7 @@ class Tarjetas extends Component{
                 < Tarjeta key={info.id + idx} datosTarjeta={info} />
             )
           }
-        <button onClick={() => this.traerTarjetas()} type="button">Cargar más tarjetas</button>
+        <button onClick={() => this.cargarMas()} type="button">Cargar más tarjetas</button>
       </article>  
       </React.Fragment>
     )
