@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import "./tarjeta.css"
 
 class Tarjeta extends Component{
   constructor(props){
@@ -19,18 +20,20 @@ class Tarjeta extends Component{
   
   render(){
     return(
-      <main>
+      <main className='contenedor-tarjeta'>
           <img src={this.props.datosTarjeta.artist.picture_medium} alt=""/>
-          <h3>{this.props.datosTarjeta.title}</h3>
-          <p class="description">Artista: {this.props.datosTarjeta.artist.name}</p>
-          {
-          this.state.verMas === false ?
-          <p></p> :
-          <section class="aditional-info">
-            <p>Album: {this.props.datosTarjeta.album.title}</p>
-          </section>
-          }
-          <button onClick={()=> this.cambiarVerMas()}>{this.state.text}</button>          
+            <div>  
+              <h3>{this.props.datosTarjeta.title_short}</h3>
+              <p class="description">Artista: {this.props.datosTarjeta.artist.name}</p>
+              {
+              this.state.verMas === false ?
+              <p></p> :
+              <section class="aditional-info">
+                <p>Album: {this.props.datosTarjeta.album.title}</p>
+              </section>
+              }
+              <button onClick={()=> this.cambiarVerMas()}>{this.state.text}</button>
+            </div>            
       </main>
     )
   }

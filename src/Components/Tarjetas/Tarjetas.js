@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Tarjeta from './Tarjeta/Tarjeta'
 import Buscador from '../Buscador/Buscador'
+import "./tarjetas.css"
 
 class Tarjetas extends Component{
   constructor(props) {

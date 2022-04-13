@@ -1,0 +1,9 @@
+.contenedor-tarjeta{
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 20%;
+}
+
