@@ -6,15 +6,10 @@ import Header from "./Components/Header/Header";
 function App() {
   return (
     <div className="App">
-          <Header/>
-      <main>
-          <section class="card-container">
-            <Tarjetas />
-            
-          </section>
-        </main>
-          <Footer/>  
-      </div>
+      <Header/>
+      <Tarjetas />
+      <Footer/>  
+    </div>
   );
 }
 

@@ -1,10 +1,24 @@
-.tarjetas{
+.tarjetasColumnas{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 15px;
 }
+
+.tarjetasColumna{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.buscador{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 20px;
+}
+
 
 
 

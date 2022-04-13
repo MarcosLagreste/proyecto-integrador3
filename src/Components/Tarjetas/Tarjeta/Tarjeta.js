@@ -20,9 +20,28 @@ class Tarjeta extends Component{
   
   render(){
     return(
-      <main className='contenedor-tarjeta'>
+      <React.Fragment>
+      {
+        this.props.columna === false ?
+          <main className='contenedor-tarjeta-columnas'>
+            <img src={this.props.datosTarjeta.artist.picture_medium} alt=""/>
+              <div>  
+                <h3>{this.props.datosTarjeta.title_short}</h3>
+                <p class="description">Artista: {this.props.datosTarjeta.artist.name}</p>
+                {
+                this.state.verMas === false ?
+                <p></p> :
+                <section class="aditional-info">
+                  <p>Album: {this.props.datosTarjeta.album.title}</p>
+                </section>
+                }
+                <button onClick={()=> this.cambiarVerMas()}>{this.state.text}</button>
+              </div>            
+          </main> :
+          
+          <main className='contenedor-tarjeta-columna'>
           <img src={this.props.datosTarjeta.artist.picture_medium} alt=""/>
-            <div>  
+            <div className='fila'>  
               <h3>{this.props.datosTarjeta.title_short}</h3>
               <p class="description">Artista: {this.props.datosTarjeta.artist.name}</p>
               {
@@ -34,7 +53,11 @@ class Tarjeta extends Component{
               }
               <button onClick={()=> this.cambiarVerMas()}>{this.state.text}</button>
             </div>            
-      </main>
+        </main>
+      }
+      
+      
+      </React.Fragment>
     )
   }
 }
