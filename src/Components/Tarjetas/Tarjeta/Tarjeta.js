@@ -28,6 +28,7 @@ class Tarjeta extends Component{
               <div>  
                 <h3>{this.props.datosTarjeta.title_short}</h3>
                 <p class="description">Artista: {this.props.datosTarjeta.artist.name}</p>
+                <button onClick={()=>this.props.remove(this.props.datosTarjeta.id)}>Eliminar</button>
                 {
                 this.state.verMas === false ?
                 <p></p> :
@@ -35,7 +36,7 @@ class Tarjeta extends Component{
                   <p>Album: {this.props.datosTarjeta.album.title}</p>
                 </section>
                 }
-                <button onClick={()=> this.cambiarVerMas()}>{this.state.text}</button>
+                <button class="Borrar" onClick={()=> this.cambiarVerMas()}>{this.state.text}</button>
               </div>            
           </main> :
           

@@ -51,6 +51,13 @@ class Tarjetas extends Component{
     })
     /* console.log(cancionesFiltradas) */; 
   }
+  borrarTarjetas(BorrarTarjeta){
+        let tarjetasQueQuedan = this.state.info.filter( info => info.id !== BorrarTarjeta);
+
+        this.setState({
+            info: tarjetasQueQuedan
+        })
+    }
 
   alinearColumnas(){
     this.setState({
@@ -82,7 +89,7 @@ class Tarjetas extends Component{
                 this.state.isLoaded === false ?
                 <p>Cargando... </p> :
                 this.state.info.map((info, idx) =>
-                    < Tarjeta key={info.id + idx} datosTarjeta={info} columna={this.state.columna} />
+                    < Tarjeta key={info.id + idx} datosTarjeta={info} columna={this.state.columna} remove={(borrarTarjeta)=>this.borrarTarjetas(borrarTarjeta)}/>
                 )
               }
             </article> :
@@ -91,7 +98,7 @@ class Tarjetas extends Component{
                 this.state.isLoaded === false ?
                 <p>Cargando... </p> :
                 this.state.info.map((info, idx) =>
-                    < Tarjeta key={info.id + idx} datosTarjeta={info} columna={this.state.columna}/>
+                    < Tarjeta key={info.id + idx} datosTarjeta={info} columna={this.state.columna} remove={(borrarTarjeta)=>this.borrarTarjetas(borrarTarjeta)}/>
                 )
               }
             </article>

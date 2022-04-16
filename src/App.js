@@ -1,4 +1,3 @@
-import DeezerInfo from "./Components/DezzerInfo/DeezerInfo";
 import Tarjetas from "./Components/Tarjetas/Tarjetas";
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
