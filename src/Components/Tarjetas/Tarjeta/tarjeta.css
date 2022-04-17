@@ -40,3 +40,6 @@
     flex-direction: row;
     padding-bottom: 20px;
 }
+.borrar{
+    align-items: right;
+}
