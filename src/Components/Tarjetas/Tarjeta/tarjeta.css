@@ -34,3 +34,9 @@
 .contenedor-tarjeta-columna:hover{
     box-shadow: 0rem 0rem 10px 8px rgb(58 59 69 / 25%);
 }
+
+.aditional-info-columna{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+}

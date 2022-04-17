@@ -47,7 +47,8 @@ class Tarjeta extends Component{
               {
               this.state.verMas === false ?
               <p></p> :
-              <section class="aditional-info">
+              <section class="aditional-info-columna">
+                <img src={this.props.datosTarjeta.album.cover_small}/>
                 <p>Album: {this.props.datosTarjeta.album.title}</p>
               </section>
               }
