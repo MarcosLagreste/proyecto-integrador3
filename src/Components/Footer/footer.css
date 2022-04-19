@@ -1,0 +1,14 @@
+footer{
+	width: 100%;
+	background-color: rgb(5, 241, 249);
+	height:70px;
+}
+.team{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    float: right;
+    width: 20%;
+    justify-content: space-between;
+    
+}
