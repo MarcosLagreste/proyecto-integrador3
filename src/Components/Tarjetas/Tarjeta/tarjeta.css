@@ -1,7 +1,7 @@
 .contenedor-tarjeta-columnas{
     display: flex;
     flex-direction: column;
-    background-color: aqua;
+    background-color: rgb(155, 255, 255);
     padding: 10px;
     margin-bottom: 20px;
     width: 20%;
@@ -10,7 +10,7 @@
 .contenedor-tarjeta-columna{
     display: flex;
     flex-direction: row;
-    background-color: aqua;
+    background-color: rgb(155, 255, 255);
     padding: 10px;
     margin-bottom: 20px;
 
@@ -40,6 +40,4 @@
     flex-direction: row;
     padding-bottom: 20px;
 }
-.Borrar{
-    float: right;
-}
+

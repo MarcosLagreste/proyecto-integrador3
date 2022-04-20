@@ -1,3 +1,4 @@
+@media (max-width: 2560px) {
 .tarjetasColumnas{
     display: flex;
     flex-direction: row;
@@ -18,14 +19,26 @@
     justify-content: space-between;
     padding: 0px 20px;
 }
-section{
+.sectionTop{
     display: flex;
     flex-direction: row;
-    width: 40%;
+    width: 100%;
     height: 100%;
     justify-content: end;
 }
-
-
+}
+@media (max-width: 320px) {
+    .buscador{
+        padding: 5px;
+    }
+    .sectionTop{
+        width: 100%;
+        height: 100%;
+    }
+    .contenedor-tarjeta-columnas {
+        
+        width: 100%;
+    }
+}
 
 

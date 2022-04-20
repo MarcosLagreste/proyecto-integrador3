@@ -5,7 +5,7 @@ function Header() {
   return (
     <header className="App-header">
 
-    <h1>Título/ Nombre de la app</h1>
+    <h1>Musicaly</h1>
   </header>
   )
 }

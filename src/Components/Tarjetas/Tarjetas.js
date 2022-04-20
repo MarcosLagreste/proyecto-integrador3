@@ -76,8 +76,8 @@ class Tarjetas extends Component{
     return(
       <React.Fragment>
         <div className='buscador'>
-          <Buscador filtrarBusqueda= {(textoAFiltrar) => this.filtrarBusqueda(textoAFiltrar)}/>
-          <section>
+          <Buscador filtrarBusqueda= {(textoAFiltrar) => this.filtrarBusqueda(textoAFiltrar)}/>  {/*cancionesFiltradas == null ? <p>No hay datos que coincidan con su búsqueda</p> : cancionesFiltradas*/}
+          <section className='sectionTop'>
             <i onClick={() => this.alinearColumnas()} className="fas fa-th"></i>
             <i onClick={() => this.alinearColumna()} className="fas fa-align-justify"></i>
           </section>
