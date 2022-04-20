@@ -35,6 +35,9 @@
     .contenedor-tarjeta-columna{
         padding: 1%;
     }
+    .fila{
+        padding-left: 0%;
+    }
 
     
 }
