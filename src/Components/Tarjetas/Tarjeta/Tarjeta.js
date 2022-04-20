@@ -34,6 +34,8 @@ class Tarjeta extends Component{
                 this.state.verMas === false ?
                 <p></p> :
                 <section class="aditional-info">
+                  <p>Ranking: {this.props.datosTarjeta.position}</p>
+                  <p>Duration: {this.props.datosTarjeta.duration} seconds</p>
                   <p>Album: {this.props.datosTarjeta.album.title}</p>
                 </section>
                 }
@@ -50,10 +52,14 @@ class Tarjeta extends Component{
               {
               this.state.verMas === false ?
               <p></p> :
+              <React.Fragment>
               <section class="aditional-info-columna">
                 <img src={this.props.datosTarjeta.album.cover_small}/>
                 <p>Album: {this.props.datosTarjeta.album.title}</p>
               </section>
+              <p>Duration: {this.props.datosTarjeta.duration} seconds</p>
+              <p>Album: {this.props.datosTarjeta.album.title}</p>
+              </React.Fragment>
               }
               <button onClick={()=> this.cambiarVerMas()}>{this.state.text}</button>
             </div>            
