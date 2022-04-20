@@ -10,5 +10,12 @@ footer{
     float: right;
     width: 20%;
     justify-content: space-between;
+    padding-right: 5%;
     
+}
+@media (max-width: 320px) {
+    .team{
+        width: 50%;
+        padding-right: 5%;
+    }
 }
