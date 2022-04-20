@@ -45,6 +45,7 @@ class Tarjeta extends Component{
             <div className='fila'>  
               <h3>{this.props.datosTarjeta.title_short}</h3>
               <p class="description">Artista: {this.props.datosTarjeta.artist.name}</p>
+              <button class="Borrar" onClick={()=>this.props.remove(this.props.datosTarjeta.id)}>Eliminar</button> 
               {
               this.state.verMas === false ?
               <p></p> :
