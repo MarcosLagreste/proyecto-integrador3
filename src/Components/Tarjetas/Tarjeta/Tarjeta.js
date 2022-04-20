@@ -24,7 +24,6 @@ class Tarjeta extends Component{
       {
         this.props.columna === false ?
           <main className='contenedor-tarjeta-columnas'>
-            <button class="Borrar1" onClick={()=>this.props.remove(this.props.datosTarjeta.id)}>Eliminar</button>
             <img src={this.props.datosTarjeta.artist.picture_medium} alt=""/>
               <div>  
                 <h3>{this.props.datosTarjeta.title_short}</h3>
@@ -39,31 +38,31 @@ class Tarjeta extends Component{
                   <p>Album: {this.props.datosTarjeta.album.title}</p>
                 </section>
                 }
-                <button onClick={()=> this.cambiarVerMas()}>{this.state.text}</button>
+                <div className='botones'>
+                  <button onClick={()=> this.cambiarVerMas()}>{this.state.text}</button>
+                  <button class="Borrar1" onClick={()=>this.props.remove(this.props.datosTarjeta.id)}>Eliminar</button>
+                </div>
               </div>            
           </main> :
           
           <main className='contenedor-tarjeta-columna'>
-          <img src={this.props.datosTarjeta.artist.picture_medium} alt=""/>
-            <div className='fila'>  
-              <h3>{this.props.datosTarjeta.title_short}</h3>
-              <p class="description">Artista: {this.props.datosTarjeta.artist.name}</p>
-              <button class="Borrar2" onClick={()=>this.props.remove(this.props.datosTarjeta.id)}>Eliminar</button> 
-              {
-              this.state.verMas === false ?
-              <p></p> :
-              <React.Fragment>
-              <section class="aditional-info-columna">
-                <img src={this.props.datosTarjeta.album.cover_small}/>
+            <img src={this.props.datosTarjeta.artist.picture_medium} alt=""/>
+              <div className='fila'>  
+                <h3>{this.props.datosTarjeta.title_short}</h3>
+                <p class="description">Artista: {this.props.datosTarjeta.artist.name}</p>
+                {
+                this.state.verMas === false ?
+                <p></p> :
+                <React.Fragment>
+                <p>Ranking: {this.props.datosTarjeta.position}</p>
+                <p>Duration: {this.props.datosTarjeta.duration} seconds</p>
                 <p>Album: {this.props.datosTarjeta.album.title}</p>
-              </section>
-              <p>Duration: {this.props.datosTarjeta.duration} seconds</p>
-              <p>Album: {this.props.datosTarjeta.album.title}</p>
-              </React.Fragment>
-              }
-              <button onClick={()=> this.cambiarVerMas()}>{this.state.text}</button>
-            </div>            
-        </main>
+                </React.Fragment>
+                }
+                <button className="borrar1" onClick={()=> this.cambiarVerMas()}>{this.state.text}</button>
+                <button className="borrar2" onClick={()=>this.props.remove(this.props.datosTarjeta.id)}>Eliminar</button>
+              </div>            
+          </main>
       }
       
       
