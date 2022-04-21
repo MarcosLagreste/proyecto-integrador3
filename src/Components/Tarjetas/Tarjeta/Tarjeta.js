@@ -11,11 +11,9 @@ class Tarjeta extends Component{
   }
 
   cambiarVerMas(){
-    if(this.state.verMas){
-      this.setState({verMas: false, text: "Ver Más"})
-    } else {
-      this.setState({verMas: true, text: "Ver Menos"})
-    }
+    this.state.verMas === true ?
+    this.setState({verMas: false, text: "Ver Más"}) :
+    this.setState({verMas: true, text: "Ver Menos"})
   }
   
   render(){
@@ -31,7 +29,7 @@ class Tarjeta extends Component{
                 
                 {
                 this.state.verMas === false ?
-                <p></p> :
+                null :
                 <section class="aditional-info">
                   <p>Ranking: {this.props.datosTarjeta.position}</p>
                   <p>Duration: {this.props.datosTarjeta.duration} seconds</p>
@@ -52,7 +50,7 @@ class Tarjeta extends Component{
                 <p class="description">Artista: {this.props.datosTarjeta.artist.name}</p>
                 {
                 this.state.verMas === false ?
-                <p></p> :
+                null :
                 <React.Fragment>
                 <p>Ranking: {this.props.datosTarjeta.position}</p>
                 <p>Duration: {this.props.datosTarjeta.duration} seconds</p>
