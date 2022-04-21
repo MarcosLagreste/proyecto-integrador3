@@ -5,7 +5,7 @@ function Header() {
   return (
     <header className="App-header">
 
-    <h1>Musicaly</h1>
+    <a href='' className='logo'><h1>Musicaly</h1></a>
   </header>
   )
 }
