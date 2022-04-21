@@ -12,7 +12,8 @@ class Tarjetas extends Component{
       infoI: [],
       error: '',
       limit: 12,
-      columna: false
+      columna: false,
+      sinResultados: null
     }
   }
 
@@ -46,9 +47,14 @@ class Tarjetas extends Component{
 
   filtrarBusqueda(textoAFiltrar){
     let cancionesFiltradas = this.state.infoI.filter(info => info.title.toLowerCase().includes(textoAFiltrar.toLowerCase()))
-    this.setState({
-        info: cancionesFiltradas
-    })
+    if (cancionesFiltradas.length !== 0) {this.setState({
+        info: cancionesFiltradas,
+        sinResultados: null
+    })}else {
+      this.setState({
+        sinResultados: 1
+      })
+    } 
     /* console.log(cancionesFiltradas) */; 
   }
   borrarTarjetas(BorrarTarjeta){
@@ -74,14 +80,20 @@ class Tarjetas extends Component{
   render(){
     /* console.log('renderizado') */
     return(
-      <React.Fragment>
+        this.state.sinResultados !== null ?
+        <>
+          <Buscador filtrarBusqueda= {(textoAFiltrar) => this.filtrarBusqueda(textoAFiltrar)}/>
+        <h4>No hay datos que coincidan con su búsqueda, pruebe buscar otro titulo</h4>
+          </> :
+          <>
         <div className='buscador'>
-          <Buscador filtrarBusqueda= {(textoAFiltrar) => this.filtrarBusqueda(textoAFiltrar)}/>  {/*cancionesFiltradas == null ? <p>No hay datos que coincidan con su búsqueda</p> : cancionesFiltradas*/}
+          <Buscador filtrarBusqueda= {(textoAFiltrar) => this.filtrarBusqueda(textoAFiltrar)}/>
+
           <section className='sectionTop'>
             <i onClick={() => this.alinearColumnas()} className="fas fa-th"></i>
             <i onClick={() => this.alinearColumna()} className="fas fa-align-justify"></i>
           </section>
-        </div>
+          </div>
         {
           this.state.columna === false ?
             <article className='tarjetasColumnas'>
@@ -104,7 +116,7 @@ class Tarjetas extends Component{
             </article>
         }
         <button onClick={() => this.cargarMas()} type="button">Cargar más tarjetas</button>  
-      </React.Fragment>
+      </>
     )
   }
 }
